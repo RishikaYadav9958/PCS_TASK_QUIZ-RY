@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz Result</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background: linear-gradient(to right, #4facfe, #00f2fe);
+      margin: 0;
+    }
+
+    .result-container {
+      background: white;
+      max-width: 450px;
+      margin: 80px auto;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0px 5px 12px rgba(0,0,0,0.15);
+      animation: fadeIn 0.6s ease-in-out;
+    }
+
+    h1 {
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    #score-text {
+      font-size: 18px;
+      font-weight: bold;
+      color: #222;
+    }
+
+    #percentage-text {
+      font-size: 16px;
+      margin-top: 8px;
+      color: #666;
+    }
+
+    .btn-group {
+      margin-top: 25px;
+    }
+
+    button {
+      padding: 10px 22px;
+      margin: 6px;
+      border: none;
+      border-radius: 6px;
+      background: #007BFF;
+      color: white;
+      cursor: pointer;
+      font-size: 15px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div class="result-container">
+    <h1>Quiz Result</h1>
+    <p id="score-text"></p>
+    <p id="percentage-text"></p>
+
+    <div class="btn-group">
+      <button id="try-again">🔄 Try Again</button>
+      <button id="go-home">🏠 Go to Home</button>
+    </div>
+  </div>
+
+  <script>
+    const score = parseInt(localStorage.getItem("score")) || 0;
+    const totalQuestions = parseInt(localStorage.getItem("totalQuestions")) || 0;
+
+    const percentage = totalQuestions > 0 
+      ? ((score / totalQuestions) * 100).toFixed(2) 
+      : 0;
+
+    document.getElementById("score-text").textContent = 
+      `You got ${score} out of ${totalQuestions} correct.`;
+    document.getElementById("percentage-text").textContent = 
+      `Percentage: ${percentage}%`;
+
+    document.getElementById("try-again").addEventListener("click", () => {
+      localStorage.removeItem("score");
+      localStorage.removeItem("totalQuestions");
+      window.location.href = "quiz6.html"; 
+    });
+
+    document.getElementById("go-home").addEventListener("click", () => {
+      localStorage.clear();
+      window.location.href = "index.html"; 
+    });
+  </script>
+</body>
+</html>

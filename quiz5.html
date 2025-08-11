@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Website</title>
+    <link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+    <div class="quiz-section">
+        <div id="quiz">
+            <div id="timer" style="font-weight:bold; margin-bottom:10px;">Time Left: 60s</div>
+            <h2 class="question" id="question">Quiz question</h2>
+            <hr />
+            <ul>
+                <li>
+                    <input type="radio" name="answer" class="answer" id="a">
+                    <label for="a" id="option_1">quiz option</label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" class="answer" id="b">
+                    <label for="b" id="option_2">quiz option</label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" class="answer" id="c">
+                    <label for="c" id="option_3">quiz option</label>
+                </li>
+                <li>
+                    <input type="radio" name="answer" class="answer" id="d">
+                    <label for="d" id="option_4">quiz option</label>
+                </li>
+            </ul>
+            <div class="btn">
+                <button type="submit" id="submit">Submit</button>
+            </div>
+        </div>
+    </div>
+    <script src="question5.js"></script>
+</body>
+</html>
